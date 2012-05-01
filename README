@@ -1,0 +1,12 @@
+This simple JIRA plugin simply counts the number of +1s in an issue's comments and exposes them as a field in the issue
+view and issue navigator screens.
+
+Additionally, the user can search for issues with a specific range of +1s.
+
+The need for this plugin arose because we essentially needed a way for our helpdesk guys to say "hey, this customer wants
+that feature too". We wanted to do this via voting but since JIRA doesn't allow to vote more than one time per user (and
+this is not going to change), this didn't work.
+
+To use the plugin, just install it, add the "Plus One" custom field to your field configurations, reindex and you're done!
+
+Feedback and pull requests are welcome, just don't hold me responsible for anything.

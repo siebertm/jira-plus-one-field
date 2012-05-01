@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+  </plugin-info>
+  <customfield-type name="Plus One Field"  key="plus-one-field" class="${project.groupId}.customfields.PlusOneField">
+    <description>Calculates the number of "+1"s in the comments and displays them</description>
+
+    <resource type="velocity" name="view" location="templates/plugins/fields/view/view-basictext.vm"/>
+    <resource type="velocity" name="xml" location="templates/plugins/fields/xml/xml-basictext.vm"/>
+    <resource type="velocity" name="column-view" location="templates/plugins/fields/view/view-basictext.vm"/>
+  </customfield-type>
+
+
+
+    <customfield-searcher key="plus-one-searcher" name="Plus One Searcher"
+                          class="${project.groupId}.customfields.PlusOneSearcher">
+        <description>Allow to search for issues with so many "plus ones"</description>
+        <resource type="velocity" name="label" location="templates/plugins/fields/view-searcher/view-searcher-number-range.vm"/>
+        <resource type="velocity" name="search" location="templates/plugins/fields/edit-searcher/search-number-range.vm"/>
+        <resource type="velocity" name="view" location="templates/plugins/fields/view-searcher/view-searcher-number-range.vm"/>
+
+        <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="plus-one-field"/>
+    </customfield-searcher>
+</atlassian-plugin>
